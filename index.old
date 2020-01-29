@@ -1,0 +1,65 @@
+import ApexCharts from 'apexcharts'
+import db from '/Users/joshmu/Google Drive/CODE/focus-tracker/db.json'
+
+export const init = (dispatch) => {
+    let data = Object.keys(db).map(k => [k, db[k]]).sort((p, c) => c[1] - p[1]).slice(0, 5)
+    console.log(data)
+    // console.log(`formatted: ${data}`)
+    // console.log(`command: ${data}`)
+    dispatch('')
+}
+
+export const refreshFrequency = false 
+
+export const className = {
+    top: 0,
+    left: 0,
+    color: '#fff',
+    opacity: 0.5
+}
+
+export const render = ({ data, error }) => {
+    // console.log(`render: ${data}`)
+    return error ? (
+        <div>Something went wrong: <strong>{String(error)}</strong></div>
+    ) : (
+            <div id='chart'></div>
+        );
+}
+
+export const updateState = (event, previousState) => {
+    console.log(`updateState_event: ${event}`)
+    console.log(`updateState_previousState: ${previousState}`)
+    let options = {
+      chart: {
+        type: 'line'
+      },
+      series: [{
+        name: 'sales',
+        data: [30,40,35,50,49,60,70,91,125]
+      }],
+      xaxis: {
+        categories: [1991,1992,1993,1994,1995,1996,1997, 1998,1999]
+      }
+    }
+
+    let chart = new ApexCharts(document.querySelector("#chart"), options);
+
+    chart.render();
+
+    return {
+        data: event
+    }
+}
+
+/*
+export const updateState = (event, previousState) => {
+  if (event.error) { return { ...previousState, warning: `We got an error: ${event.error}` };
+  }
+  const [cpuPct, processName] = event.output.split(',');
+  return {
+    cpuPct: parseFloat(cpuPct),
+    processName
+  };
+}
+*/

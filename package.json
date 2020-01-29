@@ -1,0 +1,14 @@
+{
+  "name": "focustracker.widget",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.jsx",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "josh mu",
+  "license": "ISC",
+  "dependencies": {
+    "apexcharts": "^3.8.5"
+  }
+}
