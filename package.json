@@ -9,6 +9,6 @@
   "author": "josh mu",
   "license": "ISC",
   "dependencies": {
-    "apexcharts": "^3.8.5"
+    "apexcharts": "^3.24.0"
   }
 }
